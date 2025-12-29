@@ -1,0 +1,60 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {
+          "q": "label:RED-NUCLEAR"
+        },
+        "options": {}
+      },
+      "id": "76e38b1f-7b7e-4b6c-9f0e-2d8c3e4f5a6b",
+      "name": "Gmail Trigger",
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1,
+      "position": [
+        400,
+        300
+      ],
+      "credentials": {
+        "gmailOAuth2Api": {
+          "id": "YOUR_GMAIL_CREDENTIAL_ID",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "🚨 **RED NUCLEAR ALERT** 🚨\n\n**Subject**: {{ $node[\"Gmail Trigger\"].json[\"subject\"] }}\n**From**: {{ $node[\"Gmail Trigger\"].json[\"from\"] }}\n\nAction Required immediately.",
+        "options": {}
+      },
+      "id": "89f3b2c1-a1b2-4c3d-9d0e-2f3a4b9c1d0e",
+      "name": "Alert Placeholder (Configure Notification)",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        700,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Gmail Trigger": {
+      "main": [
+        [
+          {
+            "node": "Alert Placeholder (Configure Notification)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

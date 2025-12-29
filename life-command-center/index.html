@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Command Center (TV)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="scanlines"></div>
+    <div class="tv-container">
+        <!-- 1. Heads-Up Display (Header) -->
+        <header class="tv-header">
+            <div class="header-left">
+                <h1>COMMAND CENTER <span class="version-tag">v3.0</span></h1>
+            </div>
+            <div class="header-center">
+                <div class="streak-orb" id="streak-orb">
+                    <span class="streak-val" id="streak-display">0</span>
+                    <span class="streak-label">DAY STREAK</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="digital-clock" id="digital-clock">00:00</div>
+                <div class="current-date" id="current-date">Monday, Jan 1</div>
+            </div>
+        </header>
+
+        <!-- 2. Mission Control (The Big Three) -->
+        <section class="mission-deck">
+            <!-- Mission 1: Abbey's PIP -->
+            <div class="mission-panel" id="mission-pip">
+                <div class="panel-header">
+                    <span class="icon">🛡️</span>
+                    <h2>PIP CLAIM</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="status-display" id="pip-status-display">STRATEGY</div>
+                    <div class="gauge-container">
+                        <div class="gauge-fill" id="pip-gauge"></div>
+                    </div>
+                    <div class="upcoming-step">Next: <span id="pip-next-step">Diary Phase</span></div>
+                </div>
+                <button class="tv-action-btn" onclick="advanceMission('pip')">LOG PROGRESS</button>
+            </div>
+
+            <!-- Mission 2: HMRC 2026 -->
+            <div class="mission-panel" id="mission-hmrc">
+                <div class="panel-header">
+                    <span class="icon">🏛️</span>
+                    <h2>HMRC '26</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="status-display warning" id="hmrc-status-display">PENDING</div>
+                    <div class="gauge-container">
+                        <div class="gauge-fill" id="hmrc-gauge"></div>
+                    </div>
+                    <div class="upcoming-step">Next: <span id="hmrc-next-step">Gateway Access</span></div>
+                </div>
+                <button class="tv-action-btn" onclick="advanceMission('hmrc')">LOG PROGRESS</button>
+            </div>
+
+            <!-- Mission 3: Job War Room (Lane 1) -->
+            <div class="mission-panel" id="mission-jobs">
+                <div class="panel-header">
+                    <span class="icon">🎯</span>
+                    <h2>JOB HUNT</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="big-counter">
+                        <span id="job-count-display">0</span><span class="target">/5</span>
+                    </div>
+                    <div class="gauge-container">
+                        <div class="gauge-fill" id="job-gauge"></div>
+                    </div>
+                </div>
+                <div class="job-controls">
+                    <button class="tv-control-btn" onclick="updateJobCount(-1)">-</button>
+                    <button class="tv-control-btn primary" onclick="updateJobCount(1)">LOG APP (+1)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. The Vital 4 (Quartile Grid) -->
+        <section class="habits-quartile">
+            <div class="habit-tile" id="habit-kitchen" onclick="toggleHabit('kitchen')">
+                <div class="tile-content">
+                    <div class="icon">🍽️</div>
+                    <h3>SHINY SINK</h3>
+                </div>
+                <div class="tile-glow"></div>
+            </div>
+
+            <div class="habit-tile" id="habit-inbox" onclick="toggleHabit('inbox')">
+                <div class="tile-content">
+                    <div class="icon">📮</div>
+                    <h3>ZERO INBOX</h3>
+                </div>
+                <div class="tile-glow"></div>
+            </div>
+
+            <div class="habit-tile" id="habit-prep" onclick="toggleHabit('prep')">
+                <div class="tile-content">
+                    <div class="icon">🎒</div>
+                    <h3>TACTICAL RESET</h3>
+                </div>
+                <div class="tile-glow"></div>
+            </div>
+
+            <div class="habit-tile" id="habit-fun" onclick="toggleHabit('fun')">
+                <div class="tile-content">
+                    <div class="icon">⚡</div>
+                    <h3>POWER UP</h3>
+                </div>
+                <div class="tile-glow"></div>
+            </div>
+        </section>
+
+        <!-- Footer / XP -->
+        <footer class="tv-footer">
+            <div class="xp-bar-container">
+                <div class="xp-label">COMMANDER XP</div>
+                <div class="xp-track">
+                    <div class="xp-fill" id="xp-fill" style="width: 0%"></div>
+                </div>
+                <div class="xp-val" id="total-points-display">0</div>
+            </div>
+            <button class="reset-btn" id="btn-reset-day">SYSTEM RESET</button>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

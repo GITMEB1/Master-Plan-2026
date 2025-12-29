@@ -1,0 +1,11 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Gemini/Agentic files
+.gemini/
+.agent/
+
+# Local configuration/secrets
+*.log
+.env
