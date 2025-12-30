@@ -1,0 +1,81 @@
+{
+    "name": "Zero-Fail Gmail Alert",
+    "nodes": [
+        {
+            "parameters": {
+                "pollTimes": {
+                    "item": [
+                        {
+                            "mode": "everyMinute"
+                        }
+                    ]
+                },
+                "filters": {
+                    "labelIds": [
+                        "Red-Nuclear"
+                    ]
+                }
+            },
+            "id": "3f32334d-842a-4b9a-9581-f5ca13f848ed",
+            "name": "Gmail Trigger",
+            "type": "n8n-nodes-base.gmailTrigger",
+            "typeVersion": 1,
+            "position": [
+                0,
+                0
+            ],
+            "credentials": {
+                "gmailOAuth2": {
+                    "id": "YrrakdLhDPPOjZQH",
+                    "name": "Gmail account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "chatId": "YOUR_CHAT_ID_HERE",
+                "text": "=🚨 **RED NUCLEAR ALERT** 🚨\n\n**Subject:** {{ $json.subject }}\n**From:** {{ $json.from }}\n**Date:** {{ $json.date }}\n\n⚠️ Action Required Immediately!",
+                "additionalFields": {
+                    "parse_mode": "Markdown"
+                }
+            },
+            "id": "telegram-alert-node",
+            "name": "Telegram Alert",
+            "type": "n8n-nodes-base.telegram",
+            "typeVersion": 1.2,
+            "position": [
+                300,
+                0
+            ],
+            "credentials": {
+                "telegramApi": {
+                    "id": "YOUR_TELEGRAM_CREDENTIAL_ID",
+                    "name": "Telegram Bot"
+                }
+            }
+        }
+    ],
+    "pinData": {},
+    "connections": {
+        "Gmail Trigger": {
+            "main": [
+                [
+                    {
+                        "node": "Telegram Alert",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "active": false,
+    "settings": {
+        "executionOrder": "v1"
+    },
+    "meta": {
+        "templateCredsSetupCompleted": false,
+        "instanceId": "b74ef13b67898a661070c1f6c9df409b8a45c12527d437cd9dc677853362c3e9"
+    },
+    "tags": []
+}
