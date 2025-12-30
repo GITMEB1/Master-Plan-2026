@@ -177,11 +177,11 @@
 
 ## Tactical Execution: 30/60/90 Day Sprint
 
-### Day 0-30: "The Reboot"
+### Day 0-30: "The Reboot" (Active Sprint)
 - [x] **Week 1**: Implement Zero-Fail Inbox (Filters + Unsubscribe). ✅ COMPLETED 2025-12-30
-- [ ] **Week 1**: Create/Update CV for Lane 1 (Support) and Lane 2 (Implementation).
-- [ ] **Week 2**: Apply to 10 Lane 1 jobs (get the safety net).
-- [ ] **Week 3**: Launch Family Command Centre (MVP).
+- [x] **Week 1**: Create/Update CV for Lane 1 (Support) and Lane 2 (Implementation). ✅ COMPLETED
+- [/] **Week 2**: Apply to 10 Lane 1 jobs (get the safety net). ⬅️ **CURRENT FOCUS**
+- [/] **Week 3**: Launch Family Command Centre (MVP). ⬅️ **CURRENT FOCUS**
 - [ ] **Routine**: Wake up, Meds, Check "Red" Label, Apply.
 
 ### Day 31-60: "Momentum"

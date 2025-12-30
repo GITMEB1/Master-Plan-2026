@@ -6,6 +6,12 @@
 
 ---
 
+## 🚨 Immediate Next Actions: Tooling Up
+*   [ ] **Create "Bad Day" Diary Template** (reduce friction to zero).
+*   [ ] **Draft Professional Evidence Request Letters** (GP/Consultant).
+
+---
+
 ## Phase 1: The Foundation (Weeks 1-4)
 *Goal: Gather the ammo before firing the shot.*
 

@@ -45,6 +45,12 @@ The goal is to transform the desktop-based "Habit Tracker" into a **central hous
 ---
 
 ## 4. Technical Requirements
+4.1 **Data Persistence (CRITICAL)**
+*   **The Problem**: `localStorage` is not enough (lost on refresh/device change).
+*   **The Solution**: Simple backend JSON storage or Google Sheets integration via n8n.
+*   **Requirement**: Job application counts and daily habit stats must persist across reloads and devices.
+
+4.2 **Display Tech**
 *   **Responsive**: Media queries using `@media (min-width: 1920px)` and viewport units (`vw`, `vh`) to scale text perfectly.
 *   **Input**: Hover states must be obvious (border glow) for mouse usage on a couch.
 *   **Theme**: "Cyberpunk / Mission Control". Dark Slate background, Neon Blue/Green accents.
